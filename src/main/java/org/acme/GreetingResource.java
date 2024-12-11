@@ -9,8 +9,14 @@ import jakarta.ws.rs.core.MediaType;
 public class GreetingResource {
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     public String hello() {
-        return "Hello from Quarkus REST";
+        return """
+                {
+                    "name": "John Doe",
+                    "age": 45,
+                    "address": "Doe Street, 23, Java Town"
+                }
+                """;
     }
 }

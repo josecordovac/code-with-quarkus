@@ -14,7 +14,13 @@ class GreetingResourceTest {
           .when().get("/hello")
           .then()
              .statusCode(200)
-             .body(is("Hello from Quarkus REST"));
+             .body(is("""
+                    {
+                        "name": "John Doe",
+                        "age": 45,
+                        "address": "Doe Street, 23, Java Town"
+                    }
+                     """));
     }
 
 }

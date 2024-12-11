@@ -1,26 +1,16 @@
 package org.acme;
 
-import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.is;
+import static org.junit.jupiter.api.Assertions.*;
 
-@QuarkusTest
 class GreetingResourceTest {
+
     @Test
     void testHelloEndpoint() {
-        given()
-          .when().get("/hello")
-          .then()
-             .statusCode(200)
-             .body(is("""
-                    {
-                        "name": "John Doe",
-                        "age": 45,
-                        "address": "Doe Street, 23, Java Town"
-                    }
-                     """));
-    }
+        GreetingResource resource = new GreetingResource();
+        String response = resource.hello();
 
+        assertEquals("Fruit[name=Apple, price=100]", response);
+    }
 }

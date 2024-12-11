@@ -1,0 +1,4 @@
+mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=quarkus \
+  -Dsonar.host.url=http://localhost:9100 \
+  -Dsonar.login=sqp_e3acb4e3788cfb159a740b4d575859f3ea364eb2

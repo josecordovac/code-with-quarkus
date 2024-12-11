@@ -1,5 +1,7 @@
 package org.acme;
 
+import org.acme.dominio.Fruit;
+
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -11,12 +13,7 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String hello() {
-        return """
-                {
-                    "name": "John Doe",
-                    "age": 45,
-                    "address": "Doe Street, 23, Java Town"
-                }
-                """;
+        Fruit fruit = new Fruit("Apple", 100);
+        return fruit.toString();
     }
 }
